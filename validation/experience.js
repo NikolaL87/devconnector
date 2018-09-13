@@ -8,16 +8,16 @@ module.exports = function validateExperienceInput(data) {
   data.company = !isEmpty(data.company) ? data.company : '';
   data.from = !isEmpty(data.from) ? data.from : '';
 
-  if(!Validator.isEmail(data.email)) {
-    errors.email = 'Email is invalid';
+  if (Validator.isEmpty(data.title)) {
+    errors.title = 'Job title field is required';
   }
 
-  if(Validator.isEmpty(data.email)) {
-    errors.email = 'Email field is required';
+  if (Validator.isEmpty(data.company)) {
+    errors.company = 'Company field is required';
   }
 
-  if(Validator.isEmpty(data.password)) {
-    errors.password = 'Password field is required';
+  if (Validator.isEmpty(data.from)) {
+    errors.from = 'From date field is required';
   }
 
   return {
